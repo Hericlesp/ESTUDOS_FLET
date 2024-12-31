@@ -10,13 +10,27 @@ def main(page:ft.page):
         page.add(ft.Checkbox(label=new_taks.value))
         new_taks.value = ''
         page.update()
-        
+
 
 
     #BLOCO DE ENTRADA DE INFORMAÇÃO UM INPUT INDIRETO
     new_taks = ft.TextField(hint_text='INSIRA UMA TAREFA...')
     #BOTÃO COM AÇÃO DE CLICK
     new_button = ft.FloatingActionButton(icon=ft.icons.ADD,on_click=add_task)
+
+
+
+    ft.Column(
+        controls=[
+            ft.Row(
+                controls=(
+                    new_taks,
+                    new_button
+                )
+
+            )
+        ]
+    )
 
     page.add(new_taks)
     page.add(new_button)
