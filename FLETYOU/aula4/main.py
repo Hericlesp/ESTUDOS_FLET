@@ -3,6 +3,9 @@
 import flet as ft
 
 def main(page:ft.page):
+    page.title= 'ToDo'
+    page.window.width= 400
+    page.window.heigth= 650 
     
 
     def add_task(e):
@@ -14,13 +17,13 @@ def main(page:ft.page):
 
 
     #BLOCO DE ENTRADA DE INFORMAÇÃO UM INPUT INDIRETO
-    new_taks = ft.TextField(hint_text='INSIRA UMA TAREFA...')
+    new_taks = ft.TextField(hint_text='INSIRA UMA TAREFA...', expand= True)
     #BOTÃO COM AÇÃO DE CLICK
     new_button = ft.FloatingActionButton(icon=ft.icons.ADD,on_click=add_task)
 
 
 
-    ft.Column(
+    card = ft.Column(
         controls=[
             ft.Row(
                 controls=(
@@ -32,7 +35,7 @@ def main(page:ft.page):
         ]
     )
 
-    page.add(new_taks)
-    page.add(new_button)
+    page.add(card)
+    
 
 ft.app(target=main)
